@@ -27,13 +27,6 @@ public class ConfigReader {
 	private BufferedReader buff;
 	private Cipher3DES cp = null;
 
-	/// <summary>
-	/// Starts the configuration method. In "location" put a path and not a
-	/// folder name
-	/// </summary>
-	/// <param name="location"></param>
-	/// <param name="file"></param>
-
 	public ConfigReader(String folderName, String file) {
 		if ((file.contains(pseparator)) || (file.contains("."))) {
 			throw new FileError("Put here only the filename");
@@ -50,17 +43,6 @@ public class ConfigReader {
 		}
 		reload();
 
-		/*
-		 * if (!folderName.isEmpty()) { if (folderName.endsWith("/")) {
-		 * this.folder = folderName.replace("/", "\\"); this.flocation =
-		 * folderName + filename; } else { this.folder = folderName + "/";
-		 * this.flocation = folder.replace("/", "\\") + filename; } } else {
-		 * this.flocation = this.filename; } if (!Directory.Exists(folderName))
-		 * { Directory.CreateDirectory(folderName); } if
-		 * (!File.Exists(flocation)) { using (StreamWriter sw =
-		 * File.CreateText(flocation.Replace("/", "\\"))) { sw.Write(""); } }
-		 * try { Reload(); } catch (Exception ex) { throw ex; }
-		 */
 	}
 
 	public ConfigReader(String folderName, String file, String encryptKey, int EncryptVector) throws Exception {
@@ -77,9 +59,6 @@ public class ConfigReader {
 		reload();
 	}
 
-	/// <summary>
-	/// Creates the configuration file if doesn't exist
-	/// </summary>
 	public void createFile() throws IOException {
 		if (!file.exists()) {
 			createFolder();
@@ -111,17 +90,10 @@ public class ConfigReader {
 		file.mkdirs();
 	}
 
-	/// <summary>
-	/// Checks if the file exist
-	/// </summary>
-	/// <returns></returns>
 	public Boolean existFile() {
 		return file.exists();
 	}
 
-	/// <summary>
-	/// Save settings
-	/// </summary>
 	public void save() {
 		String text = "";
 		for (String ii : rbox) {
@@ -156,11 +128,6 @@ public class ConfigReader {
 		}
 	}
 
-	/// <summary>
-	/// Save list, do not use list here
-	/// </summary>
-	/// <param name="path"></param>
-	/// <param name="value"></param>
 	public void set(String path, Object value) {
 		List<String> qnt = rbox;
 		String line = "";
@@ -208,9 +175,6 @@ public class ConfigReader {
 		}
 	}
 
-	/// <summary>
-	/// Check if there's been a change in the file
-	/// </summary>
 	public void reload() {
 		String Textbfl = "";
 		String toDecrypt = "";
@@ -251,11 +215,6 @@ public class ConfigReader {
 		return itemc.substring(0, itemc.lastIndexOf(s2));
 	}
 
-	/// <summary>
-	/// get string in configuration
-	/// </summary>
-	/// <param name="path"></param>
-	/// <returns></returns>
 	public String getString(String path) {
 		try {
 			return (String) get(path, "\"", "\"");
@@ -264,10 +223,6 @@ public class ConfigReader {
 		}
 	}
 
-	/// <summary>
-	/// Verify that the configuration is empty
-	/// </summary>
-	/// <returns></returns>
 	public boolean isEmpty() {
 		String text = "";
 		for (String ii : rbox) {
@@ -281,11 +236,6 @@ public class ConfigReader {
 		return text.isEmpty();
 	}
 
-	/// <summary>
-	/// Checks if the file contains the item
-	/// </summary>
-	/// <param name="path"></param>
-	/// <returns></returns>
 	public boolean contains(String path) {
 		for (String item : rbox) {
 			if (item.startsWith(path + ":")) {
@@ -295,11 +245,6 @@ public class ConfigReader {
 		return false;
 	}
 
-	/// <summary>
-	/// get boolean in configuration
-	/// </summary>
-	/// <param name="path"></param>
-	/// <returns></returns>
 	public boolean getBoolean(String path) {
 		try {
 			return Boolean.parseBoolean((String) get(path, "", ""));
@@ -308,11 +253,6 @@ public class ConfigReader {
 		}
 	}
 
-	/// <summary>
-	/// get int in configuration
-	/// </summary>
-	/// <param name="path"></param>
-	/// <returns></returns>
 	public int getInt(String path) {
 		try {
 			return Integer.parseInt((String) get(path, "", ""));
@@ -321,11 +261,6 @@ public class ConfigReader {
 		}
 	}
 
-	/// <summary>
-	/// get double in configuration
-	/// </summary>
-	/// <param name="path"></param>
-	/// <returns></returns>
 	public double getDouble(String path) {
 		try {
 			return Double.parseDouble((String) get(path, "", ""));
@@ -334,11 +269,6 @@ public class ConfigReader {
 		}
 	}
 
-	/// <summary>
-	/// get list in configuration
-	/// </summary>
-	/// <param name="path"></param>
-	/// <returns></returns>
 	public List<Object> getList(String path) {
 		List<Object> ob = new ArrayList<Object>();
 		try {

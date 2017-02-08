@@ -26,13 +26,6 @@ public final class Commands {
 		}
 	}
 
-	/*
-	 * public void unRegister(String command) {
-	 * cmd.remove(command.toLowerCase()); }
-	 * 
-	 * public void unRegister(Command command) { cmd.remove(command); }
-	 */
-
 	public Set<String> keySet() {
 		return this.cmd.keySet();
 	}

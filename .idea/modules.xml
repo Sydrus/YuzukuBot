@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Tomori.iml" filepath="$PROJECT_DIR$/Tomori.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YuzukuBot.iml" filepath="$PROJECT_DIR$/YuzukuBot.iml" />
     </modules>
   </component>
 </project>

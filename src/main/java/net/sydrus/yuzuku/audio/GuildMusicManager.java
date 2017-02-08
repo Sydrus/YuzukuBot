@@ -20,12 +20,6 @@ public class GuildMusicManager {
 		getPlayer().addListener(scheduler);
 	}
 
-	/**
-	 * 
-	 * @return Wrapper around AudioPlayer to use it as an AudioSendHandler.
-	 * 
-	 */
-
 	final int containsTracks(List<AudioTrack> tracks) {
 		int ToReturn = 0;
 		for (AudioTrack track : tracks) {
@@ -80,18 +74,6 @@ public class GuildMusicManager {
 		this.scheduler.registerTrack(track);
 	}
 
-	/**
-	 * 
-	 * Add the next track to queue or play right away if nothing is in the
-	 * queue.
-	 *
-	 * 
-	 * 
-	 * @param track
-	 *            The track to play or add to queue.
-	 * 
-	 */
-
 	public void queue() {
 		this.scheduler.queue();
 	}
@@ -121,10 +103,6 @@ public class GuildMusicManager {
 		this.scheduler.setTextChannel(channel);
 	}
 
-	/**
-	 * Used to fix crashes with the player connection
-	 * 
-	 */
 	public void reset() {
 		this.scheduler.reset();
 		getPlayer().removeListener(scheduler);
