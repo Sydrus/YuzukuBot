@@ -184,9 +184,7 @@ public class YuzukuBot {
 	}
 
 	public CommandManager getCommandManager(/*Class<?> clas*/) {
-		/*if (!clas.getName().startsWith("net.sydrus.yuzuku")) {
-			throw new RuntimeException("No permission for use this code");
-		}*/
+
 		return this._CommandManager;
 	}
 
