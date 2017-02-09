@@ -126,13 +126,6 @@ public class TrackScheduler extends AudioEventAdapter {
 	}
 
 	public void queue(int number) throws Exception {
-		// Calling startTrack with the noInterrupt set to true will start the
-		// track only if nothing is currently playing. If
-
-		// something is playing, it returns false and does nothing. In that case
-		// the player was already playing so this
-
-		// track goes to the queue instead.
 		int tq = number;
 		if (number - 1 >= 0) {
 			tq--;
@@ -212,7 +205,7 @@ public class TrackScheduler extends AudioEventAdapter {
 				manager.addField("Playing Now", info.title, true);
 				manager.addField("Durations", track.getDuration() + "", true);
 				if (hasNextTrack()) {
-					manager.addField("Next Track", getNextTrack().getInfo().title, false);
+					manager.addField("Next", getNextTrack().getInfo().title, false);
 				}
 				manager.addField("Position in queue", getAtualQueue() + "/" + getAudioTrackQuanty(), true);
 				if (hasNextTrack()) {

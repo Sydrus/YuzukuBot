@@ -58,7 +58,7 @@ public class YuzukuBot {
 		try {
 			_JDA = new JDABuilder(AccountType.BOT)
 					.setToken("Mjc4NjkzNzkyMjk3Nzc5MjAw.C3wBaQ.66glGgpH0A9BBrScQfD7FJIdKsE")
-					.addListener(new DiscordListener()).setGame(Game.of("Maintenence!")).buildBlocking();
+					.addListener(new DiscordListener()).setGame(Game.of("@Yuzuku Bot help")).buildBlocking();
 			tmanager = new timeManager();
 			tmanager.startCount();
 			connectionOnlineTime = new timeManager();

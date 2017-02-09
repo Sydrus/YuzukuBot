@@ -206,9 +206,7 @@ public class MusicManager {
 				}
 				if (!musicManager.containsAudioTrack(track)) {
 					addTrack(guild, track);
-					channel.sendMessage(
-							embedMessage("Added music (" + track.getInfo().title + ") musics to the list)", Color.RED))
-							.queue();
+					channel.sendMessage(embedMessage("Added music (" + track.getInfo().title + ") musics to the list)", Color.RED)).queue();
 				} else {
 					channel.sendMessage(embedMessage("This music has already been added", Color.RED)).queue();
 				}

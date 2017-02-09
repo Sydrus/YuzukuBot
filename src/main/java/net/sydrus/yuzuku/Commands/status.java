@@ -1,5 +1,6 @@
 package net.sydrus.yuzuku.Commands;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,23 +23,11 @@ public class status extends Command {
 		statusItems.add("**Discord:**");
 		statusItems.add("	**Status:** " + YuzukuBot.getInstance().Status);
 		statusItems.add("	**Guilds:** " + YuzukuBot.getInstance().getJDA().getGuilds().size() + "\n");
-		statusItems
-				.add("	**Commands:** " + YuzukuBot.getInstance().getCommandManager().getCommands().count());
+		statusItems.add("	**Commands:** " + YuzukuBot.getInstance().getCommandManager().getCommands().count());
 		statusItems.add("	**Sub Commands:** " + YuzukuBot.getInstance().subCommands + "\n");
 		statusItems.add("**BOT Prefix:** " + YuzukuBot.guildManager.getPrefix(Guild) + "\n");
 		statusItems.add("**Time Online:** " + YuzukuBot.getInstance().tmanager.toString() + "\n");
 		statusItems.add("**Errors:** " + YuzukuBot.getInstance().botErrors + "\n");
-		statusItems.add("**Bot Server:**");
-		String svSts = "";
-		if (YuzukuBot.getInstance().botServer.isOnline) {
-			svSts = "**Online,** " + YuzukuBot.getInstance().botServer.getStatus();
-		} else {
-			svSts = "**Offline**";
-		}
-		statusItems.add("	**Status:** " + svSts);
-		statusItems.add("	**Has Connection:** " + YuzukuBot.getInstance().botServer.hasConnection());
-		statusItems
-				.add("	**connection online for:** " + YuzukuBot.getInstance().connectionOnlineTime.getFormedTextOfUsed());
 		String endItems = "";
 		for (String itemslist : statusItems) {
 			endItems = endItems + itemslist + "\n";
