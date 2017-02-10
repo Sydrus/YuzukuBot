@@ -57,7 +57,7 @@ public class YuzukuBot {
 		_Instance = this;
 		try {
 			_JDA = new JDABuilder(AccountType.BOT)
-					.setToken("")
+					.setToken("Mjc4NjkzNzkyMjk3Nzc5MjAw.C39sBA.YTCqwvzbHU-lhenApAF0M4iHL-s")
 					.addListener(new DiscordListener()).setGame(Game.of("@Yuzuku Bot help")).buildBlocking();
 			tmanager = new timeManager();
 			tmanager.startCount();
@@ -177,9 +177,6 @@ public class YuzukuBot {
 	}
 
 	public final ConfigReader getusers(/*Class<?> clas*/) {
-	/**	if (!clas.getName().startsWith("net.sydrus.yuzuku")) {
-			throw new RuntimeException("No permission for use this code");
-		}*/
 		return this.users;
 	}
 
