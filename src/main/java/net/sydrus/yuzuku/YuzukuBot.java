@@ -36,7 +36,7 @@ public class YuzukuBot {
 	public static Color defaultMessageColor = Color.GREEN;
 	public final CommandManager _CommandManager;
 	private static AddonsLoader admanager;
-	public String Version = "1.0";
+	public String Version = "2.3";
 	public String Status = "Running";
 	public int subCommands = 12;
 	public timeManager tmanager;
@@ -58,7 +58,7 @@ public class YuzukuBot {
 		try {
 			_JDA = new JDABuilder(AccountType.BOT)
 					.setToken("")
-					.addListener(new DiscordListener()).setGame(Game.of("@Yuzuku Bot help")).buildBlocking();
+					.addListener(new DiscordListener()).setGame(Game.of("Changing Game")).buildBlocking();
 			tmanager = new timeManager();
 			tmanager.startCount();
 			connectionOnlineTime = new timeManager();

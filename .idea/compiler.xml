@@ -8,10 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Tomori" />
+        <module name="YuzukuBot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Tomori" target="1.8" />
+      <module name="YuzukuBot" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

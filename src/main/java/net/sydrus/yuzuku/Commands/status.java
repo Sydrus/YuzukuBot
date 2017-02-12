@@ -1,9 +1,12 @@
 package net.sydrus.yuzuku.Commands;
 
 import java.awt.*;
+import java.lang.management.ManagementFactory;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.management.OperatingSystemMXBean;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
@@ -13,6 +16,24 @@ import net.sydrus.yuzuku.Constructors.Command;
 import net.sydrus.yuzuku.Managers.LevelType;
 
 public class status extends Command {
+
+	private int getThreads() {
+		return Thread.activeCount();
+	}
+
+	private long getTotalMemory() {
+		return ((Runtime.getRuntime().totalMemory() / (1024 * 1024)));
+	}
+
+	private long getMemory() {
+		return (((Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024 * 1024)));
+	}
+
+	private String getCPULoad() {
+		OperatingSystemMXBean osBean = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
+		DecimalFormat df = new DecimalFormat("#.##");
+		return (df.format(osBean.getProcessCpuLoad())) + "%";
+	}
 
 	@Override
 	public boolean onCommand(User Sender, Message Message, Guild Guild, TextChannel Chat, List<LevelType> type,
@@ -28,6 +49,8 @@ public class status extends Command {
 		statusItems.add("**BOT Prefix:** " + YuzukuBot.guildManager.getPrefix(Guild) + "\n");
 		statusItems.add("**Time Online:** " + YuzukuBot.getInstance().tmanager.toString() + "\n");
 		statusItems.add("**Errors:** " + YuzukuBot.getInstance().botErrors + "\n");
+		statusItems.add("**Bot Server Status:** \n");
+		statusItems.add("**CPU:** " + getCPULoad() + "\n" + "	**Memory:** " + getMemory() + "/" + Runtime.getRuntime().totalMemory() / (1024 * 1024) + "MB" + " \n" + "**Threads:** " + getThreads());
 		String endItems = "";
 		for (String itemslist : statusItems) {
 			endItems = endItems + itemslist + "\n";

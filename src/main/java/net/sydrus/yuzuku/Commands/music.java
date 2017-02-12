@@ -52,15 +52,10 @@ public class music extends Command {
 					if (manager.isPaused(Guild)) {
 						manager.Pause(Guild, false);
 					} else {
-						/*
-						 * if (manager.getGuildMusicManager(Guild).scheduler.
-						 * isPlaying()) { manager.Stop(Guild); }
-						 */
 						if (!manager.getGuildMusicManager(Guild).isPlaying()) {
 							manager.Start(Guild, Chat);
 							manager.setVolume(Guild, YuzukuBot.guildManager.getVolume(Guild));
-							// Chat.sendMessage(nowPlaying(Guild,
-							// true)).queue();
+							Chat.sendMessage(nowPlaying(Guild,true)).queue();
 						} else {
 							Chat.sendMessage(embedMessage("I'm already playing a music", Color.RED)).queue();
 						}
@@ -176,13 +171,13 @@ public class music extends Command {
 		} else if ((args.length == 2) && (args[0].equalsIgnoreCase("setvolume"))) {
 			if (manager.hasConnection(Guild)) {
 				int volume = Integer.valueOf(args[1]).intValue();
-				if (volume <= 120) {
+				if (volume <= 100) {
 					manager.setVolume(Guild, volume);
 					GuildManager gm = YuzukuBot.guildManager;
 					gm.setVolume(Guild, volume);
 					Chat.sendMessage(embedMessage("**Volume set to (" + volume + "%)**")).queue();
 				} else {
-					Chat.sendMessage(embedMessage("**The volume can not be greater than 120%**", Color.RED)).queue();
+					Chat.sendMessage(embedMessage("**The volume can not be greater than 100%**", Color.RED)).queue();
 				}
 			} else {
 				Chat.sendMessage(embedMessage(":x: **I'm not connected on any channel**", Color.RED)).queue();
@@ -261,7 +256,7 @@ public class music extends Command {
 				Chat.sendMessage("__**Error**__ **trying to reset AudioPlayer. Send this error to the author of** "
 						+ YuzukuBot.botName + " :" + e).queue();
 			}
-		} else if ((args.length == 2) && (args[0].equalsIgnoreCase("setnexttrack"))) {
+		} else if ((args.length == 2) && (args[0].equalsIgnoreCase("setnextmusic"))) {
 			try {
 				int music_queue = Integer.valueOf(args[1]).intValue();
 				try {
@@ -280,7 +275,7 @@ public class music extends Command {
 			} catch (Exception e) {
 				Chat.sendMessage(embedMessage("Error: " + e.getMessage(), Color.RED)).queue();
 			}
-		} else if ((args.length == 1) && (args[0].equalsIgnoreCase("nexttrack"))) {
+		} else if ((args.length == 1) && (args[0].equalsIgnoreCase("nextmusic"))) {
 			if (this.manager.getSettedNextQueueInt(Guild) > 0) {
 				EmbedManager embManager = new EmbedManager();
 				AudioTrack track = this.manager.getSettedNextQueue(Guild);
@@ -312,8 +307,8 @@ public class music extends Command {
 		help.addItem("	{s}pause - ", "**Pause the music**");
 		help.addItem("	{s}stop - ", "**Stop the music**");
 		help.addItem("	{s}skip - ", "**Skip the music**");
-		help.addItem("	{s}setnexttrack - ", "**Sets the next song to play**");
-		help.addItem("	{s}nexttrack - ", "**See the next song set to play**");
+		help.addItem("	{s}setnextmusic - ", "**Sets the next song to play**");
+		help.addItem("	{s}nextmusic - ", "**See the next song set to play**");
 		help.addItem("	{s}nowplaying - ", "**See what's playing now**");
 		help.addItem("	{s}join <channel> - ",
 				"**Enter the defined channel, if no channel is defined the bot will enter the channel you are**");
