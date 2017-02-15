@@ -123,7 +123,7 @@ public class music extends Command {
 			} catch (Exception e) {
 				Chat.sendMessage(embedMessage("**Error on stop**", Color.RED)).queue();
 			}
-		} else if ((args.length == 1) && (args[0].equalsIgnoreCase("nowplaying"))) {
+		} else if ((args.length == 1) && (args[0].equalsIgnoreCase("pn"))) {
 			if (manager.getGuildMusicManager(Guild).isPlaying()) {
 				try {
 					Chat.sendMessage(nowPlaying(Guild, true)).queue();
@@ -168,7 +168,7 @@ public class music extends Command {
 			} else {
 				Chat.sendMessage(embedMessage(":x: I'm not connected on any channel", Color.RED)).queue();
 			}
-		} else if ((args.length == 2) && (args[0].equalsIgnoreCase("setvolume"))) {
+		} else if ((args.length == 2) && (args[0].equalsIgnoreCase("setv"))) {
 			if (manager.hasConnection(Guild)) {
 				int volume = Integer.valueOf(args[1]).intValue();
 				if (volume <= 100) {
@@ -256,7 +256,7 @@ public class music extends Command {
 				Chat.sendMessage("__**Error**__ **trying to reset AudioPlayer. Send this error to the author of** "
 						+ YuzukuBot.botName + " :" + e).queue();
 			}
-		} else if ((args.length == 2) && (args[0].equalsIgnoreCase("setnextmusic"))) {
+		} else if ((args.length == 2) && (args[0].equalsIgnoreCase("snm"))) {
 			try {
 				int music_queue = Integer.valueOf(args[1]).intValue();
 				try {
@@ -275,7 +275,7 @@ public class music extends Command {
 			} catch (Exception e) {
 				Chat.sendMessage(embedMessage("Error: " + e.getMessage(), Color.RED)).queue();
 			}
-		} else if ((args.length == 1) && (args[0].equalsIgnoreCase("nextmusic"))) {
+		} else if ((args.length == 1) && (args[0].equalsIgnoreCase("nm"))) {
 			if (this.manager.getSettedNextQueueInt(Guild) > 0) {
 				EmbedManager embManager = new EmbedManager();
 				AudioTrack track = this.manager.getSettedNextQueue(Guild);
@@ -307,9 +307,10 @@ public class music extends Command {
 		help.addItem("	{s}pause - ", "**Pause the music**");
 		help.addItem("	{s}stop - ", "**Stop the music**");
 		help.addItem("	{s}skip - ", "**Skip the music**");
-		help.addItem("	{s}setnextmusic - ", "**Sets the next song to play**");
-		help.addItem("	{s}nextmusic - ", "**See the next song set to play**");
-		help.addItem("	{s}nowplaying - ", "**See what's playing now**");
+		help.addItem("	{s}snm - ", "**Sets the next music**");
+		help.addItem("	{s}nm - ", "**See the next music**");
+		help.addItem("	{s}pn - ", "**See what's playing now**");
+		help.addItem("	{s}setv - ", "**Set the volume of the music**");
 		help.addItem("	{s}join <channel> - ",
 				"**Enter the defined channel, if no channel is defined the bot will enter the channel you are**");
 		help.addItem("	{s}leave - ", "**Exits the voice channel if it is connected** " );
