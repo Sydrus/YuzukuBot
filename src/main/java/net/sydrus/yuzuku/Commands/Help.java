@@ -12,7 +12,7 @@ import net.sydrus.yuzuku.Managers.CommandType;
 import net.sydrus.yuzuku.Managers.HelpManager;
 import net.sydrus.yuzuku.Managers.LevelType;
 import net.sydrus.yuzuku.Managers.HelpManager.HelpType;
-import net.sydrus.yuzuku.addon.CommandInfo;
+import net.sydrus.yuzuku.plugin.CommandInfo;
 
 public class Help extends Command {
 

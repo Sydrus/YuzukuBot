@@ -9,7 +9,6 @@ import net.sydrus.yuzuku.Managers.EmbedManager;
 import net.sydrus.yuzuku.Managers.ConsoleCommand.ConsoleDef;
 import net.sydrus.yuzuku.Managers.ConsoleCommand.Type;
 import net.sydrus.yuzuku.Managers.ConsoleCommand.Type.MessageType;
-import net.sydrus.yuzuku.addon.Manager.Addon;
 
 public class stop extends ConsoleCommand {
 
@@ -20,9 +19,6 @@ public class stop extends ConsoleCommand {
 				EmbedManager emb = new EmbedManager();
 				emb.setColor(Color.RED);
 				emb.setDescription("**I'm sorry but I'm hanging up**");
-				for (Addon addon : YuzukuBot.getAddonsManager().addons()) {
-					addon.Disable();
-				}
 				for (TextChannel ch : YuzukuBot.MusicManager.getMusicChannels()) {
 					try {
 						ch.sendMessage(emb.getMessage()).queue();

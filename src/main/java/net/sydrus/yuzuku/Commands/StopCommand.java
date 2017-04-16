@@ -13,7 +13,6 @@ import net.sydrus.yuzuku.Managers.LevelType;
 import net.sydrus.yuzuku.Managers.ConsoleCommand.Type;
 import net.sydrus.yuzuku.Managers.ConsoleCommand.Type.MessageType;
 import net.sydrus.yuzuku.String.Administratives;
-import net.sydrus.yuzuku.addon.Manager.Addon;
 
 public class StopCommand extends Command {
 
@@ -24,9 +23,6 @@ public class StopCommand extends Command {
 		if (type.contains(LevelType.Developer)) {
 			new Thread(new Runnable() {
 				public void run() {
-					for (Addon addon : YuzukuBot.getAddonsManager().addons()) {
-						addon.Disable();
-					}
 					for (TextChannel ch : YuzukuBot.MusicManager.getMusicChannels()) {
 						try {
 							ch.sendMessage(embedMessage("**I'm sorry but I'm hanging up**", Color.RED)).queue();

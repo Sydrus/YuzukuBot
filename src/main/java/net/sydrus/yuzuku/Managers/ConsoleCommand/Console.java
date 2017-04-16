@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 
 import net.sydrus.yuzuku.YuzukuBot;
 import net.sydrus.yuzuku.FileReader.ConfigReader;
-import net.sydrus.yuzuku.Managers.timeManager;
 import net.sydrus.yuzuku.Managers.ConsoleCommand.Type.MessageType;
 
 public class Console {
@@ -14,7 +13,6 @@ public class Console {
 	//private boolean isLocked = true;
 	private boolean autolock = true;
 	private RegisterCommand cmds;
-	private timeManager tmanager = new timeManager();
 	private ConfigReader config = null;
 	private Thread t1 = null;
 
@@ -24,7 +22,6 @@ public class Console {
 		t1.start();
 		cmds = new RegisterCommand();
 		config = YuzukuBot.getInstance().settingsData;
-		tmanager.clear();
 	}
 
 	private Console getConsole() {
@@ -57,7 +54,6 @@ public class Console {
 											cmds.getCmdManager().get(getArray(scanned)[0].toLowerCase()).onCommand(
 													new ConsoleDef(getConsole()), scanned, "null", getCommand(scanned));
 										}
-										tmanager.clear();
 									} else {
 										Type.messageType(MessageType.Error, "This command does not exist");
 									}
@@ -81,10 +77,9 @@ public class Console {
 			//this.isLocked = value;
 			if ((value == false) && (autolock == true)) {
 				//this.isLocked = value;
-				tmanager.startCount();
+
 			} else if (value == true) {
-				tmanager.stopCount();
-				tmanager.clear();
+
 			}
 		} else {
 			throw new RuntimeException("Invalid Class Permission");

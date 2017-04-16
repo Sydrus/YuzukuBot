@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import net.sydrus.yuzuku.Constructors.Command;
-import net.sydrus.yuzuku.addon.CommandInfo;
+import net.sydrus.yuzuku.plugin.CommandInfo;
 
 public final class Commands {
 	private Map<String, Command> cmd = new HashMap<String, Command>();

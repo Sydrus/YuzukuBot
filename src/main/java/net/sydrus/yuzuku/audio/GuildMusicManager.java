@@ -11,7 +11,7 @@ import net.sydrus.yuzuku.exceptions.OutOfRangeException;
 
 public class GuildMusicManager {
 
-	private TrackScheduler scheduler;
+	public TrackScheduler scheduler;
 	private AudioPlayerManager man = null;
 
 	public GuildMusicManager(AudioPlayerManager manager) {

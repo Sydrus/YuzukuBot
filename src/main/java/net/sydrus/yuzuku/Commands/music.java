@@ -209,16 +209,15 @@ public class music extends Command {
 			GuildMusicManager musicman = manager.getGuildMusicManager(Guild);
 			Chat.sendMessage(embedMessage("**Music list: " + musicman.musicSize() + "**")).queue();
 
-			/*
-			 * if
-			 *
-			 * (manager.hasMusic(Guild)) { String toReturn = ""; int position =
-			 * 0; for (AudioTrack track :
-			 * manager.getGuildMusicManager(Guild).scheduler.getTrucks()) {
-			 * toReturn = toReturn + "(" + position + ") " +
-			 * track.getInfo().title; position++; } } else {
-			 * Chat.sendMessage(embedMessage("No musics")).queue(); }
-			 */
+			  if
+
+			  (manager.hasMusic(Guild)) { String toReturn = ""; int position =
+			  0; for (AudioTrack track :
+			  manager.getGuildMusicManager(Guild).scheduler.getTrucks()) {
+			  toReturn = toReturn + "(" + position + ") " +
+			  track.getInfo().title; position++; } } else {
+			  Chat.sendMessage(embedMessage("No musics")).queue(); }
+
 		} else if ((args.length == 1) && (args[0].equalsIgnoreCase("shuffle"))) {
 
 		} else if ((args.length == 1) && (args[0].equalsIgnoreCase("asp"))) {
@@ -302,8 +301,8 @@ public class music extends Command {
 	private void lenght0Message(TextChannel channel, Guild guild) {
 		HelpManager help = new HelpManager();
 		help.setPrefix("{s}", YuzukuBot.guildManager.getPrefix(guild) + "music");
-		help.addItem("	{s}add <Playlist/YoutubeUrl> - ", "**Add songs**");
-		help.addItem("	{s}play <id> - ", "**Play a song, if no number is placed, start playing music 1**" );
+		help.addItem("	{s}add <Playlist/YoutubeUrl> - ", "**Add music**");
+		help.addItem("	{s}play - ", "**Play a song**" );
 		help.addItem("	{s}pause - ", "**Pause the music**");
 		help.addItem("	{s}stop - ", "**Stop the music**");
 		help.addItem("	{s}skip - ", "**Skip the music**");
@@ -315,7 +314,7 @@ public class music extends Command {
 				"**Enter the defined channel, if no channel is defined the bot will enter the channel you are**");
 		help.addItem("	{s}leave - ", "**Exits the voice channel if it is connected** " );
 		help.addItem("	{s}asp - ", "**For songs to be saved in the setting when adding. Use <True/False>**");
-		help.addItem("	{s}shuffle - ", "**Shuffle the songs**");
+		help.addItem("	{s}shuffle - ", "**Shuffle the musics**");
 		help.addItem("	{s}reset - ",
 				"**Enter this command if your audio player is not responding / working so that it is reset**");
 		help.addItem("	{s}clear - ",

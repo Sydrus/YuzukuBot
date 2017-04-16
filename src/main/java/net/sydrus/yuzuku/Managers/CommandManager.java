@@ -1,20 +1,8 @@
 package net.sydrus.yuzuku.Managers;
 
+import net.sydrus.yuzuku.Commands.*;
 import net.sydrus.yuzuku.YuzukuBot;
-import net.sydrus.yuzuku.Commands.AdmCommand;
-import net.sydrus.yuzuku.Commands.ClearChat;
-import net.sydrus.yuzuku.Commands.Help;
-import net.sydrus.yuzuku.Commands.HelpAddons;
-import net.sydrus.yuzuku.Commands.StopCommand;
-import net.sydrus.yuzuku.Commands.add;
-import net.sydrus.yuzuku.Commands.addonsStatusCommand;
-import net.sydrus.yuzuku.Commands.infouser;
-import net.sydrus.yuzuku.Commands.music;
-import net.sydrus.yuzuku.Commands.mydata;
-import net.sydrus.yuzuku.Commands.setPrefix;
-import net.sydrus.yuzuku.Commands.setgame;
-import net.sydrus.yuzuku.Commands.status;
-import net.sydrus.yuzuku.addon.CommandInfo;
+import net.sydrus.yuzuku.plugin.CommandInfo;
 
 public class CommandManager {
 
@@ -32,11 +20,12 @@ public class CommandManager {
 		cmd.register(new CommandInfo("status", " - **Show the bot status**", LevelType.User), new status());
 		// cmd.register("vote", new vote());
 		cmd.register(new CommandInfo("myin", " - **Show your user's data**", LevelType.User), new mydata());
-		cmd.register(new CommandInfo("addons", " - **Show the addons by running the bot**", LevelType.Developer),
-				new addonsStatusCommand());
 		cmd.register(new CommandInfo("uinfo", " - **Show a user's information**", LevelType.Administrator),
 				new infouser());
-		cmd.register(new CommandInfo("ahelp", " - **Show addons commands**", LevelType.User), new HelpAddons());
+		cmd.register(new CommandInfo("oserver", " - **Official server**", LevelType.User), new OficialServer());
+		cmd.register(new CommandInfo("plugins", " - **Show the Plugins running now**", LevelType.Developer),
+				new addonsStatusCommand());
+		cmd.register(new CommandInfo("plhelp", " - **Show plugins commands**", LevelType.User), new HelpAddons());
 		cmd.register(new CommandInfo("music", " - **Play music**", LevelType.User), new music());
 		cmd.register(new CommandInfo("setprefix", " - **Set the prefix to use the bot**", LevelType.ServerOwner),
 				new setPrefix());
