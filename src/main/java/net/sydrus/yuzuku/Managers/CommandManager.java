@@ -22,7 +22,9 @@ public class CommandManager {
 		cmd.register(new CommandInfo("myin", " - **Show your user's data**", LevelType.User), new mydata());
 		cmd.register(new CommandInfo("uinfo", " - **Show a user's information**", LevelType.Administrator),
 				new infouser());
+		/*
 		cmd.register(new CommandInfo("oserver", " - **Official server**", LevelType.User), new OficialServer());
+		*/
 		cmd.register(new CommandInfo("plugins", " - **Show the Plugins running now**", LevelType.Developer),
 				new addonsStatusCommand());
 		cmd.register(new CommandInfo("plhelp", " - **Show plugins commands**", LevelType.User), new HelpAddons());
@@ -31,6 +33,9 @@ public class CommandManager {
 				new setPrefix());
 		cmd.register(new CommandInfo("add", " - **Get the link to add to " + YuzukuBot.botName + " user discord guild**",
 				LevelType.User), new add());
+		cmd.register(new CommandInfo("pgif", " - **Random porn gif [+18] [NSFW]**",
+				LevelType.User), new NSFW());
+
 	}
 
 	public Commands getCommands() {
