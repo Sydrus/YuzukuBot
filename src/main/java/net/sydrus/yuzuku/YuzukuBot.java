@@ -51,7 +51,7 @@ public class YuzukuBot {
         _Instance = this;
         try {
             _JDA = new JDABuilder(AccountType.BOT)
-                    .setToken("Mjc4NjkzNzkyMjk3Nzc5MjAw.C39sBA.YTCqwvzbHU-lhenApAF0M4iHL-s")
+                    .setToken("")
                     .addListener(new DiscordListener()).setGame(Game.of("Changing Game")).buildBlocking();
             settingsData = new ConfigReader(settingsFolder, botDataOfUsersAndText);
             settingsData.createFile();
